@@ -11,7 +11,7 @@ defmodule ParliamentBot.Application do
     # Define workers and child supervisors to be supervised
     children = [
       # Starts a worker by calling: ParliamentBot.Worker.start_link(arg1, arg2, arg3)
-      # worker(ParliamentBot.Worker, [arg1, arg2, arg3]),
+      worker(Slack.Bot, [ParliamentBot.Slack, [], Application.get_env(:parliament_bot, :slack_token)], restart: :permanent)
     ]
 
     # See http://elixir-lang.org/docs/stable/elixir/Supervisor.html
