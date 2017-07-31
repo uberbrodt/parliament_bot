@@ -17,6 +17,12 @@ defmodule ParliamentBotWeb.Router do
     pipe_through :browser # Use the default browser stack
 
     get "/", PageController, :index
+
+  end
+
+  scope "/api", ParliamentBotWeb do
+    pipe_through :api
+    post "/:bot_token", PageController, :open_bot
   end
 
   # Other scopes may use custom stacks.

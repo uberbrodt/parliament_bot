@@ -1,4 +1,4 @@
-defmodule ParliamentBot.Slack do
+defmodule ParliamentBot.SlackBot do
   use Slack
   @moduledoc """
   Documentation for ParliamentBot.

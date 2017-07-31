@@ -1,4 +1,4 @@
-defmodule ParliamentBot.Supervisor do
+defmodule ParliamentBot.BotSupervisor do
   use Supervisor
 
   def start_link do
@@ -6,14 +6,13 @@ defmodule ParliamentBot.Supervisor do
   end
 
   def new_bot_instance(token) do
-    IO.puts(token)
+    Supervisor.start_child(__MODULE__, [ParliamentBot.SlackBot, [], token])
   end
 
   def init(_) do
     children = [
-      worker(ParliamentBot.Slack, [], restart: :temporary),
+      worker(Slack.Bot, [], restart: :transient)
     ]
-
     supervise(children, strategy: :simple_one_for_one)
   end
 end
