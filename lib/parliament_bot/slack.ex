@@ -34,8 +34,9 @@ defmodule ParliamentBot.Slack do
 
   ### Message that parlibot overhears.
   def handle_event(message = %{type: "message"}, slack, state) do
-    if Regex.match?(~r/^<@#{slack.me.id}>:? (.*)/, message.text) do
-      [[_, text]] = Regex.scan(~r/^<@#{slack.me.id}>:? (.*)/, message.text)
+    rex = ~r/^<@#{slack.me.id}>:? (.*)/
+    if Regex.match?(rex, message.text) do
+      [[_, text]] = Regex.scan(rex, message.text)
       interpret_message(text, message, slack)
     end
     {:ok, state}
