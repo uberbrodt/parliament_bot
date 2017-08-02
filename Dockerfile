@@ -2,7 +2,6 @@
 # I chose this one because it has Elixir preinstalled.
 FROM elixir:1.4
 
-# Compile app
 RUN mkdir /app
 WORKDIR /app
 
@@ -14,6 +13,6 @@ RUN mix deps.get
 RUN mix compile
 
 # Install app
+CMD [ "mix", "run", "--no-halt" ]
 ADD . /app
 RUN mix compile
-CMD [ "mix", "run", "--no-halt" ]

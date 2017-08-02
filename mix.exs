@@ -15,8 +15,10 @@ defmodule ParliamentBot.Mixfile do
   # Type "mix help compile.app" for more information
   def application do
     # Specify extra applications you'll use from Erlang/Elixir
-    [extra_applications: [:logger],
-     mod: {ParliamentBot.Application, []}]
+    [
+      mod: {ParliamentBot.Application, []},
+      extra_applications: [:gen_state_machine, :gproc, :logger, :runtime_tools]
+    ]
   end
 
   # Dependencies can be Hex packages:
@@ -29,6 +31,16 @@ defmodule ParliamentBot.Mixfile do
   #
   # Type "mix help deps" for more examples and options
   defp deps do
-    [{:slack, "~> 0.12.0"}]
+    [
+      {:cowboy, "~> 1.0"},
+      {:gen_state_machine, "~> 2.0"},
+      {:gettext, "~> 0.11"},
+      {:gproc, "0.3.1"},
+      {:phoenix, "~> 1.3.0"},
+      {:phoenix_html, "~> 2.10"},
+      {:phoenix_live_reload, "~> 1.0", only: :dev},
+      {:phoenix_pubsub, "~> 1.0"},
+      {:slack, "~> 0.12.0"}
+    ]
   end
 end
