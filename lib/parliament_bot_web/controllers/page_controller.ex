@@ -6,7 +6,7 @@ defmodule ParliamentBotWeb.PageController do
   end
 
   def open_bot(conn, %{"bot_token" => token}) do
-    ParliamentBot.BotSupervisor.new_bot_instance(token)
+    ParliamentBot.Bot.start(token)
     json conn, %{}
   end
 end

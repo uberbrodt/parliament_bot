@@ -10,7 +10,8 @@ defmodule ParliamentBot.Application do
     children = [
       # Start the endpoint when the application starts
       supervisor(ParliamentBotWeb.Endpoint, []),
-      supervisor(ParliamentBot.BotSupervisor, [])
+      supervisor(ParliamentBot.Bot, []),
+      supervisor(Registry, [:unique, :slackbot_registry])
     ]
 
     # See https://hexdocs.pm/elixir/Supervisor.html
