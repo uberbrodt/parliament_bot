@@ -38,7 +38,10 @@ defmodule ParliamentBot.Mixfile do
       {:phoenix_live_reload, "~> 1.0", only: :dev},
       {:gettext, "~> 0.11"},
       {:cowboy, "~> 1.0"},
-      {:slack, "~> 0.12.0"}
+      {:slack, "~> 0.12.0"},
+      {:credo, "~> 0.8", only: [:dev, :test], runtime: false},
+      {:distillery, "~> 1.5", runtime: false},
+      {:conform, "~> 2.5"}
     ]
   end
 end
