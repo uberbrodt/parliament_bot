@@ -8,7 +8,6 @@ use Mix.Config
 # Configures the endpoint
 config :parliament_bot, ParliamentBotWeb.Endpoint,
   url: [host: "localhost"],
-  secret_key_base: "sD+Gj7uZwFvqqtVKgT11IMBRUAY5Q3VV2xes0O/X6OBfRyHUDvKLMK+a8T0fo/Jx",
   render_errors: [view: ParliamentBotWeb.ErrorView, accepts: ~w(html json)],
   pubsub: [name: ParliamentBot.PubSub,
            adapter: Phoenix.PubSub.PG2]
