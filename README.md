@@ -10,6 +10,14 @@ Now you can visit [`localhost:4000`](http://localhost:4000) from your browser.
 
 Ready to run in production? Please [check our deployment guides](http://www.phoenixframework.org/docs/deployment).
 
+
+### Dev Notes
+
+`member_joined_channel` filter on the 
+
+## message subtypes
+`channel_join` when parlibot is added to a channel
+
 ## Learn more
 
   * Official website: http://www.phoenixframework.org/

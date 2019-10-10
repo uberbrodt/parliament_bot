@@ -9,7 +9,7 @@ defmodule ParliamentBot.SlackBot do
   alias ParliamentBot.MsgParser
   alias ParliamentBot.Session.SessionsSupervisor
 
-  defstruct [:id, :name]
+  defstruct [:id, :client_id, :name, :token]
 
 
   def handle_connect(slack, state) do

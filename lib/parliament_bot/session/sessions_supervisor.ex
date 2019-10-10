@@ -4,8 +4,8 @@ defmodule ParliamentBot.Session.SessionsSupervisor do
   """
   use Supervisor
 
-  def start_link do
-    Supervisor.start_link(__MODULE__, [], name: __MODULE__)
+  def start_link([client_id: client_id]) do
+    Supervisor.start_link(__MODULE__, [], name: client_id)
   end
 
   def dispatch_to_session(_session_id, _cmd, _message, _user) do

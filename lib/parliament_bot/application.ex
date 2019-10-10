@@ -1,4 +1,5 @@
 defmodule ParliamentBot.Application do
+  @moduledoc false
   use Application
 
   # See https://hexdocs.pm/elixir/Application.html
@@ -11,7 +12,8 @@ defmodule ParliamentBot.Application do
       # Start the endpoint when the application starts
       supervisor(ParliamentBotWeb.Endpoint, []),
       supervisor(ParliamentBot.Bot, []),
-      supervisor(Registry, [:unique, :slackbot_registry])
+      supervisor(Registry, [:unique, :slackbot_registry]),
+      worker(ParliamentBot.Bot.TokenStore, [])
     ]
 
     # See https://hexdocs.pm/elixir/Supervisor.html
